@@ -52,7 +52,7 @@ class Stud extends React.Component{
         }
 }
 ReactDOM.render(<Stud id="1" name="Chris Rohan" email="chrisrohan@gmail.com" />,document.getElementById("gg"));
-const EMPLOYEE_API_BASE_URL = "http://localhost:8080/student";
+const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
        console.log(el.length);
