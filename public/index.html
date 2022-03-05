@@ -171,7 +171,7 @@ if (alertTrigger) {
    function displayMessage(){
     let employee={id:"0",name:document.getElementById("floatingInput").value,email:document.getElementById("floatingPassword").value};
 
-axios.post("http://localhost:8080/students",employee).then((res) =>
+axios.post("https://demo-react-axios.herokuapp.com/students",employee).then((res) =>
         {  const element=res.data;
                 ReactDOM.render(
                       element ,
@@ -182,7 +182,7 @@ axios.post("http://localhost:8080/students",employee).then((res) =>
 	    }   
       function remove()
       {
-        axios.delete("http://localhost:8080/deleteall").then(res =>
+        axios.delete("https://demo-react-axios.herokuapp.com/deleteall").then(res =>
         {
                document.getElementById("tt").innerHTML=res.data;
         });
