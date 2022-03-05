@@ -12,6 +12,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy":"npm install axios",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
