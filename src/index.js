@@ -58,8 +58,8 @@ class Stud extends React.Component{
 const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
-       for (let index = 0; index < 3; index++) {
-        const columns = [{  
+       
+        const columns = [{Header :'ID',accessor:'id'},{  
           Header: 'Name',  
           accessor: 'name'  
           },{  
@@ -75,7 +75,6 @@ axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
         pageSizeOptions = {[2,4, 6]}  
     /> ,document.getElementById("gg"));
       
-      }
         });
 
         
