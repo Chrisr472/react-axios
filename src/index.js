@@ -58,70 +58,37 @@ class Stud extends React.Component{
 
  
 
-  
-class App extends React.Component {  
-  render() {  
-     const data = [{  
-        name: 'Ayaan',  
-        age: 26  
-        },{  
-         name: 'Ahana',  
-         age: 22  
-         },{  
-         name: 'Peter',  
-         age: 40      
-         },{  
-         name: 'Virat',  
-         age: 30  
-         },{  
-         name: 'Rohit',  
-         age: 32  
-         },{  
-         name: 'Dhoni',  
-         age: 37  
-         }]  
-     const columns = [{  
-       Header: 'Name',  
-       accessor: 'name'  
-       },{  
-       Header: 'Age',  
-       accessor: 'age'  
-       }]  
-    return (  
-          <div>  
-              <ReactTable  
-                  data={data}  
-                  columns={columns}  
-                  defaultPageSize = {2}  
-                  pageSizeOptions = {[2,4, 6]}  
-              />  
-          </div>        
-    )  
-  }  
-}
-ReactDOM.render(
-  <App />,
-  document.getElementById('gg')
-);  
+ 
 const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
        
-        const columns = [{Header :'ID',accessor:'id'},{  
-          Header: 'Name',  
-          accessor: 'name'  
-          },{  
-          Header: 'Email',  
-          accessor: 'email'  
-          }]  ;
-         
+       function App()
+       {
+       
+       return (
+         <div className="App">
+           <table>
+             <tr>
+               <th>Name</th>
+               <th>ID</th>
+               <th>Email</th>
+             </tr>
+             {el.map((val, key) => {
+               return (
+                 <tr key={key}>
+                   <td>{val.name}</td>
+                   <td>{val.id}</td>
+                   <td>{val.email}</td>
+                 </tr>
+               )
+             })}
+           </table>
+         </div>
+       );
+            }  
      
-       ReactDOM.render(<ReactTable  
-        data={el}  
-        columns={columns}  
-        defaultPageSize = {3}  
-        pageSizeOptions = {[2,4, 6]}  
-    /> ,document.getElementById("gg"));
+       ReactDOM.render(<App /> ,document.getElementById("gg"));
       
         });
 
