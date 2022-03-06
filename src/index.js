@@ -73,7 +73,7 @@ axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
   
 );
      
-       ReactDOM.render(<table>
+       ReactDOM.render(<table class="table">
     
         <tbody>{listItems} </tbody>
   </table> ,document.getElementById("gg"));
