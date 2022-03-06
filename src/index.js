@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactTable from 'react-table';
 import './index.css';
 
 
@@ -53,14 +54,26 @@ class Stud extends React.Component{
                 );
         }
 }
+
 const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
        for (let index = 0; index < 3; index++) {
-         
+        const columns = [{  
+          Header: 'Name',  
+          accessor: 'name'  
+          },{  
+          Header: 'Email',  
+          accessor: 'email'  
+          }]  ;
          
      
-       ReactDOM.render(<Stud id={el[index].id} name={el[index].name} email={el[index].email} />,document.getElementById("gg"));
+       ReactDOM.render(<ReactTable  
+        data={el}  
+        columns={columns}  
+        defaultPageSize = {3}  
+        pageSizeOptions = {[2,4, 6]}  
+    /> ,document.getElementById("gg"));
       
       }
         });
