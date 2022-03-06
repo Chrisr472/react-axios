@@ -17,10 +17,7 @@ class HelloMessage extends React.Component {
         }
       }
       
-      ReactDOM.render(
-        <HelloMessage name="Taylor" />,
-        document.getElementById('gg')
-      );
+      
 class Stud extends React.Component{
         render()
         {
@@ -62,33 +59,12 @@ class Stud extends React.Component{
 const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
-       
-       function App()
-       {
-       
-       return (
-         <div className="App">
-           <table>
-             <tr>
-               <th>Name</th>
-               <th>ID</th>
-               <th>Email</th>
-             </tr>
-             {el.map((val, key) => {
-               return (
-                 <tr key={key}>
-                   <td>{val.name}</td>
-                   <td>{val.id}</td>
-                   <td>{val.email}</td>
-                 </tr>
-               )
-             })}
-           </table>
-         </div>
-       );
-            }  
+       const numbers = [1, 2, 3, 4, 5];
+       const listItems = numbers.map((number) =>
+  <li>{number}</li>
+);
      
-       ReactDOM.render(<App /> ,document.getElementById("gg"));
+       ReactDOM.render(<ul>{listItems}</ul> ,document.getElementById("gg"));
       
         });
 
