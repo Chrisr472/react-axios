@@ -64,19 +64,28 @@ axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const listItems = numbers.map((number) =>
   
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">{number.id}</th>
-      <th scope="col">{number.name}</th>
-      <th scope="col">{number.email}</th>
+      <th>#</th>
+      <td >{number.id}</td>
+      <td >{number.name}</td>
+      <td >{number.email}</td>
     </tr>
    
   
 );
      
        ReactDOM.render(<table class="table">
-    
-        <tbody>{listItems} </tbody>
-  </table> ,document.getElementById("gg"));
+       <thead class="table-dark">
+       <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+    </tr>
+       </thead>
+       <tbody>
+         {listItems}
+       </tbody>
+     </table>,document.getElementById("gg"));
       
         });
 
