@@ -53,23 +53,16 @@ class Stud extends React.Component{
                 );
         }
 }
-ReactDOM.render(<Stud id="1" name="Chris Rohan" email="chrisrohan@gmail.com" />,document.getElementById("gg"));
 const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
-       ReactDOM.render(<Stud id={el[2].id} name={el[2].name} email={el[2].email} />,document.getElementById("gg"));
-       ReactDOM.render(
-        el[0].id,
-   document.getElementById('i')
- );
- ReactDOM.render(
-        el[2].name,
-   document.getElementById('n')
- );
-       ReactDOM.render(
-        el[1].email,
-   document.getElementById('e')
- );
+       for (let index = 0; index < 3; index++) {
+         
+         
+     
+       ReactDOM.render(<Stud id={el[index].id} name={el[index].name} email={el[index].email} />,document.getElementById("gg"));
+      
+      }
         });
 
         
