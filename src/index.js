@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTable from 'react-table';
 import './index.css';
-import "react-table/react-table.css";  
+import './react-table/react-table.css';  
 
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
