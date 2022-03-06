@@ -60,9 +60,9 @@ const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
 
-       const numbers = el.name;
+       const numbers = el;
        const listItems = numbers.map((number) =>
-  <li>{number}</li>
+  <li>{number.name}</li>
 );
      
        ReactDOM.render(<ul>{listItems}</ul> ,document.getElementById("gg"));
