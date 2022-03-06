@@ -59,7 +59,8 @@ class Stud extends React.Component{
 const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
-       const numbers = [1, 2, 3, 4, 5];
+
+       const numbers = el.name;
        const listItems = numbers.map((number) =>
   <li>{number}</li>
 );
