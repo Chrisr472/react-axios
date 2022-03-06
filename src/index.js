@@ -57,10 +57,6 @@ ReactDOM.render(<Stud id="1" name="Chris Rohan" email="chrisrohan@gmail.com" />,
 const EMPLOYEE_API_BASE_URL = "https://demo-react-axios.herokuapp.com/student";
 axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
        const el =res.data;
-       console.log(el.length);
-       console.log(el[0].id);
-       console.log(el[0].name);
-       console.log(el[0].email);
        ReactDOM.render(<Stud id={el[2].id} name={el[2].name} email={el[2].email} />,document.getElementById("gg"));
        ReactDOM.render(
         el[0].id,
