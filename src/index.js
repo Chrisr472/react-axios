@@ -62,10 +62,21 @@ axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
 
        const numbers = el;
        const listItems = numbers.map((number) =>
-  <li>{number.name}</li>
+  
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">{number.id}</th>
+      <th scope="col">{number.name}</th>
+      <th scope="col">{number.email}</th>
+    </tr>
+   
+  
 );
      
-       ReactDOM.render(<ul>{listItems}</ul> ,document.getElementById("gg"));
+       ReactDOM.render(<table>
+    
+        <tbody>{listItems} </tbody>
+  </table> ,document.getElementById("gg"));
       
         });
 
