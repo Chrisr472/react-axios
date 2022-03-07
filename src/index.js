@@ -88,8 +88,41 @@ axios.get(EMPLOYEE_API_BASE_URL).then((res) => {
      </table>,document.getElementById("gg"));
       
         });
-
+       
         
+        const Form = () => {
+          // a local state to store the currently selected file.
+          const [selectedFile, setSelectedFile] = React.useState(null);
+        
+          const handleSubmit = (event) => {
+            event.preventDefault()
+            const formData = new FormData();
+            formData.append("selectedFile", selectedFile);
+            try {
+               axios({
+                method: "post",
+                url: "https://demo-react-axios.herokuapp.com/file",
+                data: formData,
+                headers: { "Content-Type": "multipart/form-data" },
+              });
+            } catch(error) {
+              console.log(error)
+            }
+          }
+        
+          const handleFileSelect = (event) => {
+            setSelectedFile(event.target.files[0])
+          }
+        
+          return (
+            <form onSubmit={handleSubmit}>
+              <input type="file" onChange={handleFileSelect}/>
+              <input type="submit" value="Upload File" />
+            </form>
+          )
+        };
+
+  ReactDOM.render(<Form/>,document.getElementById("tt"));
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

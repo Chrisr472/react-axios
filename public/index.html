@@ -210,8 +210,8 @@ axios.post("https://demo-react-axios.herokuapp.com/students",employee).then((res
       }
       function sigIn()
       {
-        axios.get("https://demo-react-axios.herokuapp.com/admin"+"?"+"email="+document.getElementById("floatingInput").value+"&password="+document.getElementById("floatingPassword").value).then(res =>{
-              console.log(res.data);
+        axios.get("https://demo-react-axios.herokuapp.com/admin"+"?"+"email="+document.getElementById("floatingInput1").value+"&password="+document.getElementById("floatingPassword1").value).then(res =>{
+              alert(res.data);
         });
       }
 	    // get reference to button
