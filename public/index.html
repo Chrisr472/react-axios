@@ -43,7 +43,7 @@
               <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Details</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Himalayan</button>
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Employee Details</button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Author</button>
@@ -99,25 +99,46 @@
               </div>
             </div></div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="https://ic1.maxabout.us/autos/tw_india//R/2021/2/royal-enfield-himalayan-mirage-silver.jpg" class="d-block w-100" alt="...">
+              <form class="row g-3" >
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Name</label>
+                  <input type="email" class="form-control" id="inputEmail4">
                 </div>
-                <div class="carousel-item">
-                  <img src="https://ic1.maxabout.us/autos/tw_india//R/2021/2/royal-enfield-himalayan-mirage-silver.jpg" alt="...">
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">Age</label>
+                  <input type="password" class="form-control" id="inputPassword4">
                 </div>
-                <div class="carousel-item">
-                  <img src="https://ic1.maxabout.us/autos/tw_india//R/2021/2/royal-enfield-himalayan-pine-green.jpg" class="d-block w-100" alt="...">
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                 </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+                <div class="col-12">
+                  <label for="inputAddress2" class="form-label">Address 2</label>
+                  <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputCity" class="form-label">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" class="form-label">State</label>
+                  <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+                <div class="col-12">
+                  <label class="input-group-text" for="inputGroupFile01">Photograph</label>
+                  <input type="file" class="form-control" id="inputGroupFile01">
+                </div>
+                <div class="col-12">
+                  <button onclick="formfun()" class="btn btn-primary">Sign in</button>
+                </div>
+              </form>
             </div></div>
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><div class="card" style="width: 18rem;">
               <img src="./IMG_7382 (2).JPG" class="card-img-top" alt="...">
@@ -137,6 +158,7 @@
 <br>
 
 <script>
+
   var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 var alertTrigger = document.getElementById('liveAlertBtn')
 
@@ -152,7 +174,20 @@ if (alertTrigger) {
     alert('Deleted', 'success')
   })
 }
+ function formfun()
+ {
+   
+  let emp={id:"0",name:document.getElementById("floatingInput").value,email:document.getElementById("floatingPassword").value};
 
+axios.post("https://demo-react-axios.herokuapp.com/students",employee).then((res) =>
+        {  const element=res.data;
+                ReactDOM.render(
+                      element ,
+                        document.getElementById('gg')
+                      );
+        });
+        location.reload();
+ }
 
    function displayMessage(){
     let employee={id:"0",name:document.getElementById("floatingInput").value,email:document.getElementById("floatingPassword").value};
